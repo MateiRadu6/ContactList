@@ -6,6 +6,11 @@ public class PhoneNumber {
     private String operator;
     private String countryCode;
 
+    public PhoneNumber(String number) {
+        this.number = number;
+        // TODO: figure out operator and country code defaults
+    }
+
     public PhoneNumber(String number, String operator) {
         this.number = number;
         this.operator = operator;

@@ -1,16 +1,13 @@
 package ro.jademy.contactlist;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.SortedSet;
 
 public class ContactGroup {
 
-    Set<Contact> contactGroup   ;
+    private Set<Contact> contactGroup = new HashSet<>();
 
-    public ContactGroup(Set<Contact> contactGroup) {
-        contactGroup = new HashSet<>();
-
+    public Set<Contact> getContactGroup() {
+        return contactGroup;
     }
 }

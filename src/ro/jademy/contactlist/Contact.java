@@ -1,18 +1,20 @@
 package ro.jademy.contactlist;
 
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class Contact implements Comparable<Contact> {
 
     private String firstName;
     private String lastname;
-    private List<PhoneNumber> phoneNumber;
+    private Set<PhoneNumber> phoneNumberSet = new HashSet<>();
 
-    public Contact(String firstName, String lastname, List<PhoneNumber> phoneNumber) {
+    public Contact(String firstName, String lastname, String phoneNumber) {
         this.firstName = firstName;
         this.lastname = lastname;
-        this.phoneNumber = phoneNumber;
+        PhoneNumber pNumber = new PhoneNumber(phoneNumber);
+        phoneNumberSet.add(pNumber);
     }
 
     public String getFirstName() {
@@ -23,8 +25,8 @@ public class Contact implements Comparable<Contact> {
         return lastname;
     }
 
-    public List<PhoneNumber> getPhoneNumber() {
-        return phoneNumber;
+    public Set<PhoneNumber> getPhoneNumberSet() {
+        return phoneNumberSet;
     }
 
     @Override
@@ -34,12 +36,21 @@ public class Contact implements Comparable<Contact> {
         Contact contact = (Contact) o;
         return Objects.equals(firstName, contact.firstName) &&
                 Objects.equals(lastname, contact.lastname) &&
-                Objects.equals(phoneNumber, contact.phoneNumber);
+                Objects.equals(phoneNumberSet, contact.phoneNumberSet);
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "firstName='" + firstName + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", phoneNumberSet=" + phoneNumberSet +
+                '}';
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastname, phoneNumber);
+        return Objects.hash(firstName, lastname, phoneNumberSet);
     }
 
     @Override

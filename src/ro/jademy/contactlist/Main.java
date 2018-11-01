@@ -6,7 +6,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Phonebook phonebook = new Phonebook();
+        PhoneBook phonebook = new PhoneBook();
+
+        try {
+            phonebook.addContact("", "", "");
+        } catch (Exception e) {
+            // TOOD: request another input
+        }
 
 
     }
